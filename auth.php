@@ -123,7 +123,10 @@ class auth_plugin_oauth extends auth_plugin_authplain
     public function registerOAuthUser(&$userinfo, $servicename)
     {
         global $conf;
-        $user = $userinfo['user'];
+        #set username as email and replace any special characters
+        $user = explode('@',$userinfo['mail'],2)[0];
+        $user = str_replace(".","_",$user);
+
         $count = '';
         while ($this->getUserData($user . $count)) {
             if ($count) {
