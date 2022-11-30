@@ -11,3 +11,4 @@ $conf['mailRestriction']     = '';
 $conf['singleService']       = '';
 $conf['register-on-auth']    = 0;
 $conf['overwrite-groups']    = 0;
+$conf['disable-local-login'] = 0;

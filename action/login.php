@@ -86,7 +86,8 @@ class action_plugin_oauth_login extends DokuWiki_Action_Plugin
 
         // remove login form if single service is set
         $singleService = $this->getConf('singleService');
-        if ($singleService) {
+        $disableLocal = $this->getConf('disable-local-login');
+        if ($singleService || $disableLocal) {
             $form->_content = [];
         }
 
@@ -116,7 +117,8 @@ class action_plugin_oauth_login extends DokuWiki_Action_Plugin
 
         // remove login form if single service is set
         $singleService = $this->getConf('singleService');
-        if ($singleService) {
+        $disableLocal = $this->getConf('disable-local-login');
+        if ($singleService || $disableLocal) {
             do {
                 $form->removeElement(0);
             } while ($form->elementCount() > 0);
